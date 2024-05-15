@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>My Library</title>
+  </head>
+  <body>
+    <header class="header"><h1>My Library</h1></header>
+    <div class="container">
+      <button class="btn" id="addBook"><em>+ Add book</em></button>
+      <div class="bookShelf">
+        <div class="book">
+          <div class="book__title"><p>The Hobbit</p></div>
+          <div class="book__author">J.K. Rowling</div>
+          <div class="book__pages">100 pages</div>
+          <button class="btn btn--green" id="read"><em>Read</em></button>
+          <button class="btn btn--red" id="remove"><em>Remove</em></button>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
