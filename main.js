@@ -1,16 +1,20 @@
-const theHobbit = {
-    id: 0,
-    title: "The Hobbit",
-    author: "J.R.R.",
-    pages: 295,
-    read: false,
-};
+const newBookButton = document.querySelector("#addBook");
+const bookModal = document.querySelector(".bookModal");
+const closeModal = document.querySelector(".iconClose");
+const form = document.querySelector("#bookForm");
 
+// Get the form elements
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages');
+const read = document.querySelector('#read');
+const add = document.querySelector('#add'); 
 
-const newBookButton = document.querySelector("#listBooks");
 const bookShelf = document.querySelector(".bookShelf");
 
-const myLibrary = [theHobbit,];
+const myLibrary = [];
+
+let idNumber = 0;
 
 function Book(id, title, author, pages, read) {
     this.id = id;
@@ -18,10 +22,32 @@ function Book(id, title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function(){
-       return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? "read" : "not read yet"}`; 
-    }
 }
+
+bookModal.addEventListener("close", () => {
+    form.reset();
+})
+
+newBookButton.addEventListener("click", () =>{
+    bookModal.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+    bookModal.close();
+});
+
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+  
+    let newBook = new Book(idNumber, title.value, author.value, pages.value, read.checked);
+    myLibrary.push(newBook);
+    console.log(myLibrary);
+    idNumber++;
+  }
+  
+form.addEventListener('submit', handleFormSubmit);
+form.addEventListener('submit', () => {bookModal.close();});
 
 function addBookToLibrary(){
 
